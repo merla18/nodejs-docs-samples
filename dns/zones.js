@@ -40,7 +40,7 @@ const program = module.exports = {
   listZones: listZones,
   main: (args) => {
     // Run the command-line program
-    cli.help().strict().parse(args).argv;
+    cli.help().strict().parse(args).argv; // eslint-disable-line
   }
 };
 

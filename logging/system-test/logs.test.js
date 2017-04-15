@@ -44,26 +44,17 @@ test.cb.serial(`should write a log entry`, (t) => {
 });
 
 test.serial(`should list log entries`, async (t) => {
-  await tryTest(async () => {
-    await new Promise((resolve, reject) => {
-      program.listLogEntriesAdvanced(filter, 5, null, (err, entries) => {
-        try {
-          t.ifError(err);
-          t.true(Array.isArray(entries));
-          t.true(entries.some((entry) => entry.data && entry.data.message === message));
-          resolve();
-        } catch (err) {
-          reject(err);
-        }
-      });
-    });
+  t.plan(0);
+  await tryTest(async (assert) => {
+    const entries = await program.listLogEntriesAdvanced(filter, 5, null);
+    assert(entries.some((entry) => entry.data && entry.data.message === message));
   }).start();
 });
 
 test.cb.serial(`should delete a log`, (t) => {
   program.deleteLog(logName, (err, apiResponse) => {
     // Ignore "Not Found" error
-    if (err && err.code !== 404) {
+    if (err && err.code !== 5) {
       t.ifError(err);
       t.not(apiResponse, undefined);
     }

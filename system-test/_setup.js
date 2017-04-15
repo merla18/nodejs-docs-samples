@@ -15,6 +15,7 @@
 
 'use strict';
 
+const assert = require(`assert`);
 const childProcess = require(`child_process`);
 const sinon = global.sinon = require(`sinon`);
 const test = global.test = require(`ava`);
@@ -52,22 +53,26 @@ class Try {
 
   execute () {
     if (this._iteration >= this._maxTries) {
-      this.reject(this._error || new Error('Reached maximum number of tries'));
-      return;
+      return this.reject(this._error || new Error('Reached maximum number of tries'));
     } else if ((Date.now() - this._start) >= this._timeout) {
-      this.reject(this._error || new Error('Test timed out'));
-      return;
+      return this.reject(this._error || new Error('Test timed out'));
     }
 
-    try {
-      this._test();
-      this.resolve();
-    } catch (err) {
-      this._error = err;
-      this._iteration++;
-      this._delay = Math.min(this._delay * this._multiplier, this._maxDelay);
-      setTimeout(() => this.execute(), this._delay);
-    }
+    return Promise.resolve()
+      .then(() => this._test(assert))
+      .then(() => this.resolve())
+      .catch((err) => {
+        this._error = err;
+        this._iteration++;
+        this._delay = Math.min(this._delay * this._multiplier, this._maxDelay);
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            Promise.resolve()
+              .then(() => this.execute())
+              .then(resolve, reject);
+          }, this._delay);
+        });
+      });
   }
 
   timeout (timeout) {
@@ -83,7 +88,7 @@ class Try {
     this.promise = new Promise((resolve, reject) => {
       this.resolve = resolve;
       this.reject = reject;
-      this.execute();
+      this.execute().then(resolve, reject);
     });
     return this.promise;
   }
@@ -100,7 +105,7 @@ global.stubConsole = () => {
       sinon.spy(console, `log`);
     } else {
       sinon.stub(console, `error`);
-      sinon.stub(console, `log`, (a, b, c) => {
+      sinon.stub(console, `log`).callsFake((a, b, c) => {
         if (typeof a === `string` && a.indexOf(`\u001b`) !== -1 && typeof b === `string`) {
           console.log.apply(console, arguments);
         }

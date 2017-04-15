@@ -169,7 +169,7 @@ function translateTextWithModel (text, target, model) {
   // [END translate_text_with_model]
 }
 
-require(`yargs`)
+require(`yargs`) // eslint-disable-line
   .demand(1)
   .command(
     `detect <text..>`,

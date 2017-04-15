@@ -5,12 +5,12 @@
   "license": "Apache Version 2.0",
   "author": "Google Inc.",
   "scripts": {
-    "test": "cd ..; npm run st -- --verbose monitoring/system-test/*.test.js"
+    "test": "cd ..; npm run st -- monitoring/system-test/*.test.js"
   },
   "dependencies": {
     "@google-cloud/monitoring": "0.2.0",
-    "async": "2.1.4",
-    "googleapis": "18.0.0",
-    "yargs": "6.6.0"
+    "async": "2.3.0",
+    "googleapis": "19.0.0",
+    "yargs": "7.1.0"
   }
 }

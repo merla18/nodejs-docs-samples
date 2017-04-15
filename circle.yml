@@ -18,7 +18,7 @@
 
 machine:
   node:
-    version: 6.9.1
+    version: 6.10.2
   services:
     - redis
     - memcached
@@ -37,27 +37,26 @@ dependencies:
     - yarn
   post:
     - echo $KEYFILE > /home/ubuntu/nodejs-docs-samples/key.json
-    - node scripts/install
   cache_directories:
     - ~/.cache/yarn
-    - appengine/bower/node_modules
+    - appengine/analytics/node_modules
     - appengine/cloudsql/node_modules
-    - appengine/express-memcached-session/node_modules
-    - appengine/geddy/node_modules
+    - appengine/datastore/node_modules
+    - appengine/endpoints/node_modules
+    - appengine/errorreporting/node_modules
     - appengine/grunt/node_modules
-    - appengine/hapi/node_modules
-    - appengine/koa/node_modules
-    - appengine/kraken/node_modules
+    - appengine/hello-world/node_modules
     - appengine/loopback/node_modules
-    - appengine/mailgun/node_modules
     - appengine/mailjet/node_modules
     - appengine/memcached/node_modules
     - appengine/mongodb/node_modules
     - appengine/parse-server/node_modules
-    - appengine/restify/node_modules
-    - appengine/sails/node_modules
+    - appengine/pubsub/node_modules
+    - appengine/redis/node_modules
+    - appengine/sendgrid/node_modules
+    - appengine/static-files/node_modules
+    - appengine/storage/node_modules
     - appengine/twilio/node_modules
-    - appengine/webpack/node_modules
     - appengine/websockets/node_modules
 
 # Run your tests

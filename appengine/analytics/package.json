@@ -1,19 +1,21 @@
 {
   "name": "appengine-analytics",
-  "description": "Sample for Google Analytics Measurement Protocol on Google App Engine",
+  "description": "Sample for Google Analytics Measurement Protocol on Google App Engine Flexible Environment.",
   "version": "0.0.1",
   "private": true,
-  "license": "Apache Version 2.0",
+  "license": "Apache-2.0",
   "author": "Google Inc.",
   "engines": {
     "node": ">=4.3.2"
   },
   "scripts": {
+    "deploy": "gcloud app deploy",
+    "e2e": "cd ../..; yarn run e2e -- appengine/analytics/test/app.e2e.js",
     "start": "node app.js",
-    "test": "cd ../..; npm run t -- appengine/analytics/test/*.test.js"
+    "test": "cd ../..; yarn run st -- appengine/analytics/test/*.test.js"
   },
   "dependencies": {
-    "express": "4.14.1",
-    "request": "2.79.0"
+    "express": "4.15.2",
+    "got": "6.7.1"
   }
 }

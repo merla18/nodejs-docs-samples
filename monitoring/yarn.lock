@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@google-cloud/monitoring@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@google-cloud/monitoring/-/monitoring-0.1.4.tgz#d2629045150289ae6eef385f68f6e1b93cce2967"
+"@google-cloud/monitoring@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/monitoring/-/monitoring-0.2.0.tgz#34cdf719b03c1d41b90a827dd95e99f1e87782b6"
   dependencies:
     extend "^3.0.0"
-    google-gax "^0.10.0"
-    google-proto-files "^0.8.3"
+    google-gax "^0.12.3"
+    google-proto-files "^0.10.0"
 
 abbrev@1:
   version "1.0.9"
@@ -56,9 +56,9 @@ assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
 
-async@2.1.4, async@^2.0.1, async@^2.1.2, async@~2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
+async@2.3.0, async@^2.0.1, async@^2.1.2, async@~2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.3.0.tgz#1013d1051047dd320fe24e494d5c66ecaf6147d9"
   dependencies:
     lodash "^4.14.0"
 
@@ -428,14 +428,14 @@ google-auto-auth@^0.5.2:
     object-assign "^3.0.0"
     request "^2.79.0"
 
-google-gax@^0.10.0:
-  version "0.10.6"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-0.10.6.tgz#3af119704700fd212df6b9250e4b4a61676b3f96"
+google-gax@^0.12.3:
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-0.12.3.tgz#be06c339387421e2e11745018d15042e51f0e3fc"
   dependencies:
     extend "^3.0.0"
     google-auto-auth "^0.5.2"
-    google-proto-files "^0.8.3"
-    grpc "~1.0"
+    google-proto-files "^0.9.1"
+    grpc "^1.1"
     lodash "^4.17.2"
     process-nextick-args "^1.0.7"
     readable-stream "^2.2.2"
@@ -446,15 +446,19 @@ google-p12-pem@^0.1.0:
   dependencies:
     node-forge "^0.6.46"
 
-google-proto-files@^0.8.3:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.8.6.tgz#a7c8ddccd2179690d270b0ebfc42994d56da0ee6"
+google-proto-files@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.10.0.tgz#980ecc04383671540f1d8453d00a68950d73728a"
 
-googleapis@16.1.0:
-  version "16.1.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-16.1.0.tgz#0f19f2d70572d918881a0f626e3b1a2fa8629576"
+google-proto-files@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.9.1.tgz#c760c79059bf62ba3ac56e1d1ba7b8d4560803be"
+
+googleapis@19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-19.0.0.tgz#8700eb14294777e0c196152051fd6367061dde85"
   dependencies:
-    async "~2.1.4"
+    async "~2.3.0"
     google-auth-library "~0.10.0"
     string-template "~1.0.0"
 
@@ -466,9 +470,9 @@ graceful-fs@^4.1.2:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-grpc@~1.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.0.1.tgz#e965544b5e56c998058102184e2ab1f27f123afd"
+grpc@^1.1:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.2.4.tgz#ef0c8c708245d8fc797e39aa330dce409b3dd03c"
   dependencies:
     arguejs "^0.2.3"
     lodash "^4.15.0"
@@ -1236,15 +1240,15 @@ y18n@^3.2.0, y18n@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
 
-yargs-parser@^4.2.0:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+yargs-parser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
   dependencies:
     camelcase "^3.0.0"
 
-yargs@6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
+yargs@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.1.0.tgz#6ba318eb16961727f5d284f8ea003e8d6154d0c8"
   dependencies:
     camelcase "^3.0.0"
     cliui "^3.2.0"
@@ -1258,7 +1262,7 @@ yargs@6.6.0:
     string-width "^1.0.2"
     which-module "^1.0.0"
     y18n "^3.2.1"
-    yargs-parser "^4.2.0"
+    yargs-parser "^5.0.0"
 
 yargs@^3.10.0:
   version "3.32.0"

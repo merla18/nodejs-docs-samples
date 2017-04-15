@@ -33,12 +33,12 @@ function getDeps (directory, depth) {
   }
 
   // Skip module directories
-  if (directory.includes('node_modules')) {
+  if (directory.includes('/.') || directory.includes('node_modules')) {
     return;
   }
 
   // Get subdirectories
-  const dirs = fs.readdirSync(directory)
+  const dirs = fs.readdirSync(directory);
 
   // Record subdirectories that contain a package.json file
   let pkgJson;
@@ -55,9 +55,9 @@ function getDeps (directory, depth) {
     return fs.statSync(path.join(directory, dir)).isDirectory();
   });
   recurseDirs.forEach((dir) => {
-    getDeps(path.join(directory, dir), depth-1);
+    getDeps(path.join(directory, dir), depth - 1);
   });
-};
+}
 
 getDeps(PROJECT_ROOT, 3);
 
@@ -65,5 +65,7 @@ getDeps(PROJECT_ROOT, 3);
 const spawn = require('child_process').spawn;
 const args = [`add`, `-D`].concat(Object.keys(pkgSet).map(pkg => `${pkg}@${pkgSet[pkg]}`));
 spawn(`yarn`, args, {
-  cwd: PROJECT_ROOT
+  cwd: PROJECT_ROOT,
+  shell: true,
+  stdio: ['ignore', process.stdout, process.stderr]
 });

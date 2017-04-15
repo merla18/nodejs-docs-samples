@@ -57,6 +57,7 @@ test.afterEach.always(restoreConsole);
 // Key ring tests
 
 test.serial(`should create a key ring`, async (t) => {
+  t.plan(0);
   const output = await runAsync(`${cmd} keyrings create "${keyRingName}"`, cwd);
   if (!output.includes(`KeyRing ${formattedKeyRingName} already exists`)) {
     t.true(output.includes(`Key ring ${formattedKeyRingName} created.`));
@@ -103,6 +104,7 @@ test.serial(`should revoke access to a key ring`, async (t) => {
 
 // Crypto key tests
 test.serial(`should create a key`, async (t) => {
+  t.plan(0);
   const output = await runAsync(`${cmd} create "${keyRingName}" "${keyNameOne}"`, cwd);
   if (!output.includes(`CryptoKey ${formattedKeyName} already exists`)) {
     t.true(output.includes(`Key ${formattedKeyName} created.`));
@@ -147,7 +149,7 @@ test.serial(`should create a crypto key version`, async (t) => {
 
 test.serial(`should list crypto key versions`, async (t) => {
   await tryTest(async () => {
-    const output = await runAsync(`${cmd} list "${keyRingName}"`, cwd);
+    const output = await runAsync(`${cmd} versions list "${keyRingName}" "${keyNameOne}"`, cwd);
     t.true(output.includes(`${formattedKeyName}/cryptoKeyVersions/1`));
     t.true(output.includes(`${formattedKeyName}/cryptoKeyVersions/2`));
   }).start();

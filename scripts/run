@@ -30,12 +30,15 @@ const queue = async.queue((directory, callback) => {
 queueDirectories('appengine');
 queue.push('bigquery');
 queue.push('computeengine');
+queueDirectories('containerengine');
 queue.push('datastore');
 queue.push('debugger');
+queue.push('dlp');
 queue.push('dns');
 queueDirectories('endpoints');
 queueDirectories('functions');
 queue.push('functions/ocr/app');
+queue.push('kms');
 queue.push('language');
 queue.push('language/slackbot');
 queue.push('logging');
@@ -43,10 +46,12 @@ queue.push('monitoring');
 queue.push('prediction');
 queue.push('pubsub');
 queue.push('resource');
+queue.push('spanner');
 queue.push('speech');
 queue.push('storage');
 queue.push('trace');
 queue.push('translate');
+queue.push('video');
 queue.push('vision');
 
 /**
@@ -56,7 +61,7 @@ queue.push('vision');
  * command.
  * @param {function} callback The callback function.
  */
-function runForDirectory(directory, callback) {
+function runForDirectory (directory, callback) {
   console.log(`${directory}...running ${command}`);
   exec(command, {
     async: true,
@@ -73,7 +78,7 @@ function runForDirectory(directory, callback) {
  * @param {string} directory The name of the directory in which to recursively
  * run the command.
  */
-function queueDirectories(directory) {
+function queueDirectories (directory) {
   // Move into the directory
   cd(directory);
 

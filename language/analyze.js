@@ -215,7 +215,7 @@ function analyzeSyntaxInFile (bucketName, fileName) {
   // [END language_syntax_file]
 }
 
-require(`yargs`)
+require(`yargs`) // eslint-disable-line
   .demand(1)
   .command(
     `sentiment-text <text>`,

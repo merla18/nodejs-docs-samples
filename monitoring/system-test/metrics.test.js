@@ -38,17 +38,20 @@ test.serial(`should create a metric descriptors`, async (t) => {
 });
 
 test.serial(`should list metric descriptors, including the new custom one`, async (t) => {
-  await tryTest(async () => {
+  t.plan(0);
+  await tryTest(async (assert) => {
     const output = await runAsync(`${cmd} list`, cwd);
-    t.true(output.includes(customMetricId));
-    t.true(output.includes(computeMetricId));
+    assert(output.includes(customMetricId));
+    assert(output.includes(computeMetricId));
   }).start();
 });
 
 test.serial(`should get a metric descriptor`, async (t) => {
-  await tryTest(async () => {
+  t.plan(0);
+  await tryTest(async (assert) => {
     const output = await runAsync(`${cmd} get ${customMetricId}`, cwd);
-    t.true(output.includes(`Type: ${customMetricId}`));
+    console.log(output);
+    assert(output.includes(`Type: ${customMetricId}`));
   }).start();
 });
 
@@ -174,6 +177,6 @@ test(`should read time series data reduced`, async (t) => {
   const reductions = timeSeries[0].points;
   const output = await runAsync(`${cmd} read-reduce`, cwd);
   t.true(output.includes(`Average CPU utilization across all GCE instances:`));
-  t.true(output.includes(`  Last 10 min: ${reductions[0].value.doubleValue}`));
-  t.true(output.includes(`  10-20 min ago: ${reductions[0].value.doubleValue}`));
+  t.true(output.includes(`  Last 10 min`));
+  t.true(output.includes(`  10-20 min ago`));
 });

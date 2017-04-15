@@ -276,7 +276,7 @@ const program = module.exports = {
   copyTable: copyTable,
   main: (args) => {
     // Run the command-line program
-    cli.help().strict().parse(args).argv;
+    cli.help().strict().parse(args).argv; // eslint-disable-line
   }
 };
 

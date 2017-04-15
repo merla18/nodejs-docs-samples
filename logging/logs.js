@@ -91,7 +91,7 @@ function listLogEntries (logName, callback) {
   });
 }
 
-function listLogEntriesAdvanced (filter, pageSize, orderBy, callback) {
+function listLogEntriesAdvanced (filter, pageSize, orderBy) {
   var logging = Logging();
   var options = {};
 
@@ -107,14 +107,12 @@ function listLogEntriesAdvanced (filter, pageSize, orderBy, callback) {
   }
 
   // See https://googlecloudplatform.github.io/google-cloud-node/#/docs/logging/latest/logging?method=getEntries
-  logging.getEntries(options, function (err, entries) {
-    if (err) {
-      return callback(err);
-    }
-
-    console.log('Found %d entries!', entries.length);
-    return callback(null, entries);
-  });
+  return logging.getEntries(options)
+    .then((results) => {
+      const entries = results[0];
+      console.log('Found %d entries!', entries.length);
+      return entries;
+    });
 }
 
 function deleteLog (logName, callback) {
@@ -146,7 +144,7 @@ var program = module.exports = {
   deleteLog: deleteLog,
   main: function (args) {
     // Run the command-line program
-    cli.help().strict().parse(args).argv;
+    cli.help().strict().parse(args).argv; // eslint-disable-line
   }
 };
 
@@ -172,7 +170,7 @@ cli
       description: 'Sort results.'
     }
   }, function (options) {
-    program.listLogEntriesAdvanced(options.filter, options.limit, options.sort, utils.makeHandler());
+    program.listLogEntriesAdvanced(options.filter, options.limit, options.sort);
   })
   .command('write <logName> <resource> <entry>', 'Writes a log entry to the specified log.', {}, function (options) {
     try {

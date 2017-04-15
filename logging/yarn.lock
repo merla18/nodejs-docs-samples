@@ -2,34 +2,33 @@
 # yarn lockfile v1
 
 
-"@google-cloud/common-grpc@^0.1.1":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@google-cloud/common-grpc/-/common-grpc-0.1.3.tgz#fe692a1df214b0b8dc25ae96ba96990dc9c18b98"
+"@google-cloud/common-grpc@^0.3.0":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@google-cloud/common-grpc/-/common-grpc-0.3.2.tgz#b38d980539368599211102a5135225d932c65edc"
   dependencies:
-    "@google-cloud/common" "^0.12.0"
+    "@google-cloud/common" "^0.13.0"
     dot-prop "^2.4.0"
     duplexify "^3.5.0"
     extend "^3.0.0"
-    google-proto-files "^0.8.6"
-    grpc "^1.1.1"
+    google-proto-files "^0.11.0"
+    grpc "^1.2.3"
     is "^3.2.0"
+    modelo "^4.2.0"
     retry-request "^1.3.2"
     through2 "^2.0.3"
 
-"@google-cloud/common@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-0.12.0.tgz#b1cb0922c70f7e5273e402b0a6ae71de2f32abc3"
+"@google-cloud/common@^0.13.0":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-0.13.1.tgz#e39aaea54e82df350f6a4114079cdd121afa3b26"
   dependencies:
     array-uniq "^1.0.3"
     arrify "^1.0.1"
     concat-stream "^1.6.0"
     create-error-class "^3.0.2"
-    dot-prop "^2.4.0"
     duplexify "^3.5.0"
     ent "^2.2.0"
     extend "^3.0.0"
-    google-auto-auth "^0.5.2"
-    google-proto-files "^0.8.6"
+    google-auto-auth "^0.6.0"
     is "^3.2.0"
     log-driver "^1.2.5"
     methmeth "^1.1.0"
@@ -41,26 +40,30 @@
     string-format-obj "^1.1.0"
     through2 "^2.0.3"
 
-"@google-cloud/logging@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/logging/-/logging-0.7.0.tgz#5defb5f6652a19f1845bc6ba1e6f343a272ea560"
+"@google-cloud/logging@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/logging/-/logging-1.0.0.tgz#6eb9ee38160dbf6cff80f63168d6794e323fa00b"
   dependencies:
-    "@google-cloud/common" "^0.12.0"
-    "@google-cloud/common-grpc" "^0.1.1"
+    "@google-cloud/common" "^0.13.0"
+    "@google-cloud/common-grpc" "^0.3.0"
     arrify "^1.0.0"
     async "^2.1.4"
+    eventid "^0.1.0"
     extend "^3.0.0"
-    google-gax "^0.10.0"
-    google-proto-files "^0.8.0"
+    google-auto-auth "^0.6.0"
+    google-gax "^0.13.0"
+    google-proto-files "^0.11.0"
     is "^3.0.1"
-    is-circular "^1.0.1"
+    pumpify "^1.3.5"
+    stream-events "^1.0.1"
     string-format-obj "^1.0.0"
+    through2 "^2.0.3"
 
-"@google-cloud/storage@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-0.7.0.tgz#87eb7bde35a1597511cba7b651e666178ac90fe1"
+"@google-cloud/storage@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-1.1.0.tgz#5e905a1aed4c196d5ce75dcdb5e4cd7ce29a0860"
   dependencies:
-    "@google-cloud/common" "^0.12.0"
+    "@google-cloud/common" "^0.13.0"
     arrify "^1.0.0"
     async "^2.0.1"
     concat-stream "^1.5.0"
@@ -168,7 +171,7 @@ balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
 
-base64url@^2.0.0:
+base64url@2.0.0, base64url@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/base64url/-/base64url-2.0.0.tgz#eac16e03ea1438eff9423d69baa36262ed1f70bb"
 
@@ -214,7 +217,7 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
-buffer-equal-constant-time@^1.0.1:
+buffer-equal-constant-time@1.0.1, buffer-equal-constant-time@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
 
@@ -370,11 +373,27 @@ cryptiles@2.x.x:
   dependencies:
     boom "2.x.x"
 
+d64@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/d64/-/d64-1.0.0.tgz#4002a87e850cbfc9f9d9706b60fca613a3336e90"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   dependencies:
     assert-plus "^1.0.0"
+
+debug@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+  dependencies:
+    ms "0.7.2"
+
+debug@2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
+  dependencies:
+    ms "0.7.2"
 
 debug@~2.2.0:
   version "2.2.0"
@@ -398,7 +417,7 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
-depd@~1.1.0:
+depd@1.1.0, depd@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.0.tgz#e1bd82c6aab6ced965b97b88b17ed3e528ca18c3"
 
@@ -427,7 +446,7 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-ecdsa-sig-formatter@^1.0.0:
+ecdsa-sig-formatter@1.0.9, ecdsa-sig-formatter@^1.0.0:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz#4bc926274ec3b5abb5016e7e1d60921ac262b2a1"
   dependencies:
@@ -472,17 +491,24 @@ escape-string-regexp@^1.0.2:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-etag@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
+etag@~1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.0.tgz#6f631aef336d6c46362b51764044ce216be3c051"
 
 event-lite@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/event-lite/-/event-lite-0.1.1.tgz#47cf08a8d37d0b694cdb7b3b17b51faac6576086"
 
-express@4.14.1:
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/express/-/express-4.14.1.tgz#646c237f766f148c2120aff073817b9e4d7e0d33"
+eventid@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/eventid/-/eventid-0.1.2.tgz#0b232d3e244ea5b1d528984140ea69ac7ec89215"
+  dependencies:
+    d64 "^1.0.0"
+    uuid "^3.0.1"
+
+express@4.15.2:
+  version "4.15.2"
+  resolved "https://registry.yarnpkg.com/express/-/express-4.15.2.tgz#af107fc148504457f2dca9a6f2571d7129b97b35"
   dependencies:
     accepts "~1.3.3"
     array-flatten "1.1.1"
@@ -490,23 +516,25 @@ express@4.14.1:
     content-type "~1.0.2"
     cookie "0.3.1"
     cookie-signature "1.0.6"
-    debug "~2.2.0"
+    debug "2.6.1"
     depd "~1.1.0"
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
-    etag "~1.7.0"
-    finalhandler "0.5.1"
-    fresh "0.3.0"
+    etag "~1.8.0"
+    finalhandler "~1.0.0"
+    fresh "0.5.0"
     merge-descriptors "1.0.1"
     methods "~1.1.2"
     on-finished "~2.3.0"
     parseurl "~1.3.1"
     path-to-regexp "0.1.7"
     proxy-addr "~1.1.3"
-    qs "6.2.0"
+    qs "6.4.0"
     range-parser "~1.2.0"
-    send "0.14.2"
-    serve-static "~1.11.2"
+    send "0.15.1"
+    serve-static "1.12.1"
+    setprototypeof "1.0.3"
+    statuses "~1.3.1"
     type-is "~1.6.14"
     utils-merge "1.0.0"
     vary "~1.1.0"
@@ -519,13 +547,15 @@ extsprintf@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
 
-finalhandler@0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-0.5.1.tgz#2c400d8d4530935bc232549c5fa385ec07de6fcd"
+finalhandler@~1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.0.1.tgz#bcd15d1689c0e5ed729b6f7f541a6df984117db8"
   dependencies:
-    debug "~2.2.0"
+    debug "2.6.3"
+    encodeurl "~1.0.1"
     escape-html "~1.0.3"
     on-finished "~2.3.0"
+    parseurl "~1.3.1"
     statuses "~1.3.1"
     unpipe "~1.0.0"
 
@@ -536,9 +566,9 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-fluent-logger@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/fluent-logger/-/fluent-logger-2.2.0.tgz#7607d839c201c5ceb9df6a487830152e4102fe99"
+fluent-logger@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/fluent-logger/-/fluent-logger-2.3.0.tgz#1ebce552a9e057401f31d649bf7e0503a010baa1"
   dependencies:
     msgpack-lite "*"
 
@@ -566,9 +596,9 @@ forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
-fresh@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.3.0.tgz#651f838e22424e7566de161d8358caa199f83d4f"
+fresh@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -604,6 +634,13 @@ gauge@~2.7.1:
     strip-ansi "^3.0.1"
     supports-color "^0.2.0"
     wide-align "^1.1.0"
+
+gcp-metadata@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/gcp-metadata/-/gcp-metadata-0.1.0.tgz#abe21f1ea324dd0b34a3f06ca81763fb1eee37d9"
+  dependencies:
+    extend "^3.0.0"
+    retry-request "^1.3.2"
 
 gcs-resumable-upload@^0.7.1:
   version "0.7.4"
@@ -662,6 +699,15 @@ glob@^7.0.5:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
+google-auth-library@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-0.10.0.tgz#6e15babee85fd1dd14d8d128a295b6838d52136e"
+  dependencies:
+    gtoken "^1.2.1"
+    jws "^3.1.4"
+    lodash.noop "^3.0.1"
+    request "^2.74.0"
+
 google-auth-library@^0.9.10, google-auth-library@^0.9.6:
   version "0.9.10"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-0.9.10.tgz#4993dc07bb4834b8ca0350213a6873a32c6051b9"
@@ -689,17 +735,29 @@ google-auto-auth@^0.5.2:
     object-assign "^3.0.0"
     request "^2.79.0"
 
-google-gax@^0.10.0:
-  version "0.10.6"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-0.10.6.tgz#3af119704700fd212df6b9250e4b4a61676b3f96"
+google-auto-auth@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/google-auto-auth/-/google-auto-auth-0.6.0.tgz#ad76656293d8d06b3c89c358becd29947d4510a8"
+  dependencies:
+    async "^2.1.2"
+    gcp-metadata "^0.1.0"
+    google-auth-library "^0.10.0"
+    object-assign "^3.0.0"
+    request "^2.79.0"
+
+google-gax@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-0.13.0.tgz#02571bcd556ddd58d86d8df3cc277cb8cecace86"
   dependencies:
     extend "^3.0.0"
     google-auto-auth "^0.5.2"
-    google-proto-files "^0.8.3"
-    grpc "~1.0"
+    google-proto-files "^0.9.1"
+    grpc "^1.2"
+    is-stream-ended "^0.1.0"
     lodash "^4.17.2"
     process-nextick-args "^1.0.7"
     readable-stream "^2.2.2"
+    through2 "^2.0.3"
 
 google-p12-pem@^0.1.0:
   version "0.1.1"
@@ -707,9 +765,13 @@ google-p12-pem@^0.1.0:
   dependencies:
     node-forge "^0.6.46"
 
-google-proto-files@^0.8.0, google-proto-files@^0.8.3, google-proto-files@^0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.8.6.tgz#a7c8ddccd2179690d270b0ebfc42994d56da0ee6"
+google-proto-files@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.11.0.tgz#3d753120718e5e8574f38def739d54cf7a057553"
+
+google-proto-files@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.9.1.tgz#c760c79059bf62ba3ac56e1d1ba7b8d4560803be"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
@@ -719,9 +781,9 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-grpc@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.1.1.tgz#f8fe5fc984e7d4d6ab0c19259a7d232c95e142bc"
+grpc@^1.2, grpc@^1.2.3:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.2.4.tgz#ef0c8c708245d8fc797e39aa330dce409b3dd03c"
   dependencies:
     arguejs "^0.2.3"
     lodash "^4.15.0"
@@ -729,17 +791,7 @@ grpc@^1.1.1:
     node-pre-gyp "^0.6.0"
     protobufjs "^5.0.0"
 
-grpc@~1.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.0.1.tgz#e965544b5e56c998058102184e2ab1f27f123afd"
-  dependencies:
-    arguejs "^0.2.3"
-    lodash "^4.15.0"
-    nan "^2.0.0"
-    node-pre-gyp "^0.6.0"
-    protobufjs "^5.0.0"
-
-gtoken@^1.1.0:
+gtoken@^1.1.0, gtoken@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gtoken/-/gtoken-1.2.1.tgz#90153a547c2fc1cd24a4d3d2ab3b5aba0a26897a"
   dependencies:
@@ -790,12 +842,13 @@ hosted-git-info@^2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.1.5.tgz#0ba81d90da2e25ab34a332e6ec77936e1598118b"
 
-http-errors@~1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.5.1.tgz#788c0d2c1de2c81b9e6e8c01843b6b97eb920750"
+http-errors@~1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.1.tgz#5f8b8ed98aca545656bf572997387f904a722257"
   dependencies:
+    depd "1.1.0"
     inherits "2.0.3"
-    setprototypeof "1.0.2"
+    setprototypeof "1.0.3"
     statuses ">= 1.3.1 < 2"
 
 http-signature@~1.1.0:
@@ -858,10 +911,6 @@ is-builtin-module@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-builtin-module/-/is-builtin-module-1.0.0.tgz#540572d34f7ac3119f8f76c30cbc1b1e037affbe"
   dependencies:
     builtin-modules "^1.0.0"
-
-is-circular@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-circular/-/is-circular-1.0.1.tgz#65b0476a8588e546b8087c1d66d4c08d82a31679"
 
 is-finite@^1.0.0:
   version "1.0.2"
@@ -950,6 +999,15 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
+jwa@^1.1.4:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/jwa/-/jwa-1.1.5.tgz#a0552ce0220742cd52e153774a32905c30e756e5"
+  dependencies:
+    base64url "2.0.0"
+    buffer-equal-constant-time "1.0.1"
+    ecdsa-sig-formatter "1.0.9"
+    safe-buffer "^5.0.1"
+
 jwa@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/jwa/-/jwa-1.0.2.tgz#fd79609f1e772e299dce8ddb76d00659dd83511f"
@@ -958,7 +1016,15 @@ jwa@~1.0.0:
     buffer-equal-constant-time "^1.0.1"
     ecdsa-sig-formatter "^1.0.0"
 
-jws@^3.0.0, jws@~3.0.0:
+jws@^3.0.0, jws@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/jws/-/jws-3.1.4.tgz#f9e8b9338e8a847277d6444b1464f61880e050a2"
+  dependencies:
+    base64url "^2.0.0"
+    jwa "^1.1.4"
+    safe-buffer "^5.0.1"
+
+jws@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/jws/-/jws-3.0.0.tgz#da5f267897dd4e9cf8137979db33fc54a3c05418"
   dependencies:
@@ -981,7 +1047,7 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-lodash.noop@~3.0.0:
+lodash.noop@^3.0.1, lodash.noop@~3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash.noop/-/lodash.noop-3.0.1.tgz#38188f4d650a3a474258439b96ec45b32617133c"
 
@@ -1271,7 +1337,7 @@ pump@^1.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-pumpify@^1.3.3:
+pumpify@^1.3.3, pumpify@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/pumpify/-/pumpify-1.3.5.tgz#1b671c619940abcaeac0ad0e3a3c164be760993b"
   dependencies:
@@ -1283,7 +1349,11 @@ punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-qs@6.2.0, qs@~6.2.0:
+qs@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
+qs@~6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.0.tgz#3b7848c03c2dece69a9522b0fae8c4126d745f3b"
 
@@ -1394,7 +1464,7 @@ request@2.76.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@^2.61.0, request@^2.72.0, request@^2.79.0:
+request@^2.61.0, request@^2.72.0, request@^2.74.0, request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:
@@ -1474,40 +1544,40 @@ safe-buffer@^5.0.1:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
-send@0.14.2:
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/send/-/send-0.14.2.tgz#39b0438b3f510be5dc6f667a11f71689368cdeef"
+send@0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/send/-/send-0.15.1.tgz#8a02354c26e6f5cca700065f5f0cdeba90ec7b5f"
   dependencies:
-    debug "~2.2.0"
+    debug "2.6.1"
     depd "~1.1.0"
     destroy "~1.0.4"
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
-    etag "~1.7.0"
-    fresh "0.3.0"
-    http-errors "~1.5.1"
+    etag "~1.8.0"
+    fresh "0.5.0"
+    http-errors "~1.6.1"
     mime "1.3.4"
     ms "0.7.2"
     on-finished "~2.3.0"
     range-parser "~1.2.0"
     statuses "~1.3.1"
 
-serve-static@~1.11.2:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.11.2.tgz#2cf9889bd4435a320cc36895c9aa57bd662e6ac7"
+serve-static@1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.12.1.tgz#7443a965e3ced647aceb5639fa06bf4d1bbe0039"
   dependencies:
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
     parseurl "~1.3.1"
-    send "0.14.2"
+    send "0.15.1"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
 
-setprototypeof@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.0.2.tgz#81a552141ec104b88e89ce383103ad5c66564d08"
+setprototypeof@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.0.3.tgz#66567e37043eeb4f04d91bd658c0cbefb55b8e04"
 
 signal-exit@^3.0.0:
   version "3.0.2"
@@ -1694,7 +1764,7 @@ utils-merge@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
-uuid@3.0.1, uuid@^3.0.0:
+uuid@3.0.1, uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
@@ -1766,15 +1836,15 @@ y18n@^3.2.0, y18n@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
 
-yargs-parser@^4.2.0:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+yargs-parser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
   dependencies:
     camelcase "^3.0.0"
 
-yargs@6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
+yargs@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.1.0.tgz#6ba318eb16961727f5d284f8ea003e8d6154d0c8"
   dependencies:
     camelcase "^3.0.0"
     cliui "^3.2.0"
@@ -1788,7 +1858,7 @@ yargs@6.6.0:
     string-width "^1.0.2"
     which-module "^1.0.0"
     y18n "^3.2.1"
-    yargs-parser "^4.2.0"
+    yargs-parser "^5.0.0"
 
 yargs@^3.10.0:
   version "3.32.0"

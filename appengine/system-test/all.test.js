@@ -1,4 +1,4 @@
-// Copyright 2015-2016, Google, Inc.
+// Copyright 2017, Google, Inc.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -42,38 +42,6 @@ function changeScaling (dir) {
 
 var sampleTests = [
   {
-    dir: 'appengine/analytics',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Event tracked.'
-  },
-  {
-    dir: 'appengine/bower',
-    cmd: 'node',
-    args: ['server.js'],
-    msg: 'Express.js + Bower on Google App Engine.'
-  },
-  // TODO: Investigate flaky test
-  // {
-  //   dir: 'appengine/cloudsql',
-  //   cmd: 'node',
-  //   args: ['server.js'],
-  //   msg: 'Last 10 visits:',
-  //   TRAVIS_NODE_VERSION: '4'
-  // },
-  {
-    dir: 'appengine/datastore',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Last 10 visits:'
-  },
-  {
-    dir: 'appengine/disk',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Last 10 visits:'
-  },
-  {
     dir: 'appengine/errorreporting',
     cmd: 'node',
     args: ['app.js'],
@@ -81,56 +49,12 @@ var sampleTests = [
     code: 500
   },
   {
-    dir: 'appengine/express',
-    deploy: true,
-    promote: true,
-    cmd: 'node',
-    args: ['./bin/www'],
-    msg: 'Hello World! Express.js on Google App Engine.',
-    TRAVIS_NODE_VERSION: '0.12'
-  },
-  {
-    dir: 'appengine/express-memcached-session',
-    cmd: 'node',
-    args: ['server.js'],
-    msg: 'Viewed',
-    TRAVIS_NODE_VERSION: '0.12'
-  },
-  // TODO: Investigate flaky test
-  // {
-  //   dir: 'appengine/geddy',
-  //   cmd: 'node',
-  //   args: ['node_modules/geddy/bin/cli.js'],
-  //   msg: 'Hello, World! Geddy.js on Google App Engine.',
-  //   TRAVIS_NODE_VERSION: '5'
-  // },
-  {
     dir: 'appengine/grunt',
     deploy: true,
     cmd: 'node',
     args: ['./src/bin/www'],
     msg: 'Hello World! Express.js + Grunt.js on Google App Engine.',
     TRAVIS_NODE_VERSION: '0.12'
-  },
-  {
-    dir: 'appengine/hello-world',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Hello, world!'
-  },
-  // TODO: Investigate flaky test
-  // {
-  //   dir: 'appengine/kraken',
-  //   cmd: 'node',
-  //   args: ['server.js'],
-  //   msg: 'Hello World! Kraken.js on Google App Engine.',
-  //   code: 304
-  // },
-  {
-    dir: 'appengine/logging',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Logged'
   },
   // TODO: Investigate flaky test
   // {
@@ -140,12 +64,6 @@ var sampleTests = [
   //   msg: 'started',
   //   code: 304
   // },
-  {
-    dir: 'appengine/mailgun',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Express.js + Mailgun on Google App Engine.'
-  },
   {
     dir: 'appengine/mailjet',
     cmd: 'node',
@@ -183,12 +101,6 @@ var sampleTests = [
     msg: '127.0.0.1'
   },
   {
-    dir: 'appengine/restify',
-    cmd: 'node',
-    args: ['server.js'],
-    msg: 'Hello World! Restify.js on Google App Engine.'
-  },
-  {
     dir: 'appengine/sendgrid',
     cmd: 'node',
     args: ['app.js'],
@@ -208,12 +120,6 @@ var sampleTests = [
     env: {
       GCLOUD_STORAGE_BUCKET: 'nodejs-docs-samples'
     }
-  },
-  {
-    dir: 'appengine/webpack',
-    cmd: 'node',
-    args: ['server.js'],
-    msg: 'Express.js + Webpack on Google App Engine.'
   },
   {
     dir: 'appengine/websockets',
@@ -241,34 +147,7 @@ var sampleTests = [
   }
 ];
 
-if (process.env.TRAVIS_NODE_VERSION === '0.12') {
-  // For some reason the "npm install" step for the Sails sample doesn't work on
-  // Travis when using Node.js 5.x. It works locally, however.
-  sampleTests.push({
-    dir: 'appengine/sails',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'Hello World! Sails.js on Google App Engine.',
-    timeout: 240000
-  });
-}
-
 if (process.env.TRAVIS_NODE_VERSION === '6') {
-  sampleTests.push({
-    dir: 'appengine/hapi',
-    cmd: 'node',
-    args: ['index.js'],
-    msg: 'Hello World! Hapi.js on Google App Engine.',
-    TRAVIS_NODE_VERSION: '6'
-  });
-  sampleTests.push({
-    dir: 'appengine/koa',
-    deploy: true,
-    cmd: 'node',
-    args: ['--harmony', 'app.js'],
-    msg: 'Hello World! Koa.js on Google App Engine.',
-    TRAVIS_NODE_VERSION: '6'
-  });
   sampleTests.push({
     dir: 'appengine/parse-server',
     cmd: 'node',

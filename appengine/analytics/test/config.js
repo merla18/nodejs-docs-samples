@@ -13,19 +13,13 @@
  * limitations under the License.
  */
 
-// [START app]
-const express = require('express');
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!').end();
-});
-
-// Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log('Press Ctrl+C to quit.');
-});
-// [END app]
+module.exports = {
+  args: ['app.js'],
+  cmd: 'node',
+  cwd: require('path').join(__dirname, '..'),
+  installCmd: 'npm',
+  installArgs: ['install'],
+  msg: 'Event tracked.',
+  port: 9000,
+  test: require('../package.json').name
+};

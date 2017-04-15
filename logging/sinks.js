@@ -141,7 +141,7 @@ var program = module.exports = {
   deleteSink: deleteSink,
   main: function (args) {
     // Run the command-line program
-    cli.help().strict().parse(args).argv;
+    cli.help().strict().parse(args).argv; // eslint-disable-line
   }
 };
 

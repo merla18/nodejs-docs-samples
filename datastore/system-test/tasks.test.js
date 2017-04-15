@@ -36,6 +36,7 @@ test.beforeEach(stubConsole);
 test.afterEach.always(restoreConsole);
 
 test.serial(`should add a task`, async (t) => {
+  t.plan(2);
   const expected = /^Task (\d+) created successfully.$/;
   const parts = run(`${cmd} new "${description}"`, cwd).match(expected);
   t.true(expected.test(parts[0]));
@@ -45,6 +46,7 @@ test.serial(`should add a task`, async (t) => {
 });
 
 test.serial(`should mark a task as done`, async (t) => {
+  t.plan(2);
   const expected = `Task ${key.id} updated successfully.`;
   const output = await runAsync(`${cmd} done ${key.id}`, cwd);
   t.is(output, expected);
@@ -53,13 +55,15 @@ test.serial(`should mark a task as done`, async (t) => {
 });
 
 test.serial(`should list tasks`, async (t) => {
-  await tryTest(async () => {
+  t.plan(0);
+  await tryTest(async (assert) => {
     const output = await runAsync(`${cmd} list`, cwd);
-    t.true(output.includes(key.id));
+    assert(output.includes(key.id));
   }).start();
 });
 
 test.serial(`should delete a task`, async (t) => {
+  t.plan(2);
   const expected = `Task ${key.id} deleted successfully.`;
   const output = await runAsync(`${cmd} delete ${key.id}`, cwd);
   t.is(output, expected);

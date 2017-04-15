@@ -25,23 +25,16 @@ const queue = async.queue((directory, callback) => {
   runForDirectory(directory, callback);
 }, 4);
 
-queue.push('appengine/bower');
-queue.push('appengine/express-memcached-session');
-queue.push('appengine/geddy');
+queue.push('appengine/analytics');
+queue.push('appengine/cloudsql');
+queue.push('appengine/datastore');
 queue.push('appengine/grunt');
-queue.push('appengine/hapi');
-queue.push('appengine/koa');
-queue.push('appengine/kraken');
 queue.push('appengine/loopback');
-queue.push('appengine/mailgun');
 queue.push('appengine/mailjet');
 queue.push('appengine/memcached');
 queue.push('appengine/mongodb');
 queue.push('appengine/parse-server');
-queue.push('appengine/restify');
-queue.push('appengine/sails');
 queue.push('appengine/twilio');
-queue.push('appengine/webpack');
 queue.push('appengine/websockets');
 
 /**
@@ -51,7 +44,7 @@ queue.push('appengine/websockets');
  * command.
  * @param {function} callback The callback function.
  */
-function runForDirectory(directory, callback) {
+function runForDirectory (directory, callback) {
   console.log(`${directory}...running "yarn install"`);
   exec('yarn install', {
     async: true,
@@ -60,26 +53,4 @@ function runForDirectory(directory, callback) {
     console.log(`${directory}...done`);
     callback(err);
   });
-}
-
-/**
- * Recursively run the command within a single directory.
- *
- * @param {string} directory The name of the directory in which to recursively
- * run the command.
- */
-function queueDirectories(directory) {
-  // Move into the directory
-  cd(directory);
-
-  // List the files in the directory
-  ls('-dl', '*')
-    // Find the directories within the directory
-    .filter((file) => file.isDirectory() && file.name !== 'test' && file.name !== 'system-test')
-    .forEach((file) => {
-      queue.push(path.join(directory, file.name));
-    });
-
-  // Move out of the directory
-  cd('..');
 }

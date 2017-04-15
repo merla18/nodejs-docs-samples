@@ -110,7 +110,7 @@ function rotateEncryptionKey () {
 }
 // [END storage_rotate_encryption_key]
 
-require(`yargs`)
+require(`yargs`) // eslint-disable-line
   .demand(1)
   .command(
     `generate-encryption-key`,

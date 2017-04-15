@@ -273,7 +273,7 @@ function streamingMicRecognize (encoding, sampleRateHertz, languageCode) {
   // [END speech_streaming_mic_recognize]
 }
 
-require(`yargs`)
+require(`yargs`) // eslint-disable-line
   .demand(1)
   .command(
     `sync <filename>`,

@@ -34,7 +34,7 @@ global.stubConsole = () => {
       sinon.spy(console, `log`);
     } else {
       sinon.stub(console, `error`);
-      sinon.stub(console, `log`, (a, b, c) => {
+      sinon.stub(console, `log`).callsFake((a, b, c) => {
         if (typeof a === `string` && a.indexOf(`\u001b`) !== -1 && typeof b === `string`) {
           console.log.apply(console, arguments);
         }

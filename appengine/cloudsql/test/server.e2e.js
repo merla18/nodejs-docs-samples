@@ -13,19 +13,17 @@
  * limitations under the License.
  */
 
-// [START app]
-const express = require('express');
+require('../../../system-test/_setup');
 
-const app = express();
+const tools = require('@google-cloud/nodejs-repo-tools');
+const config = require('./config');
 
-app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!').end();
+// TODO: Need a way to add env vars to the yaml file during deployment
+test.serial.skip(`${config.test}:deploy`, (t) => {
+  t.plan(0);
+  return tools.testDeploy(config)
+    .then(
+      () => tools.deleteVersion(config),
+      (err) => tools.deleteVersion(config).then(() => Promise.reject(err))
+    );
 });
-
-// Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log('Press Ctrl+C to quit.');
-});
-// [END app]

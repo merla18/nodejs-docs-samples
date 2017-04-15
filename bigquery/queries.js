@@ -129,7 +129,7 @@ const program = module.exports = {
   syncQuery: syncQuery,
   main: (args) => {
     // Run the command-line program
-    cli.help().strict().parse(args).argv;
+    cli.help().strict().parse(args).argv; // eslint-disable-line
   }
 };
 

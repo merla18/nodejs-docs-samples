@@ -128,7 +128,10 @@ test.serial(`saves with a named key`, (t) => entity.testNamedKey(t));
 test.serial(`saves a key with a parent`, (t) => entity.testKeyWithParent(t));
 test.serial(`saves a key with multiple parents`, (t) => entity.testKeyWithMultiLevelParent(t));
 test.serial(`saves an entity with a parent`, (t) => entity.testEntityWithParent(t));
-test.serial(`saves an entity with properties`, (t) => entity.testProperties(t));
+test.serial(`saves an entity with properties`, (t) => {
+  t.plan(0);
+  return entity.testProperties(t);
+});
 test.serial(`saves an entity with arrays`, (t) => entity.testArrayValue(t));
 test.serial(`saves a basic entity`, (t) => entity.testBasicEntity(t));
 test.serial(`saves with an upsert`, (t) => entity.testUpsert(t));
@@ -136,6 +139,9 @@ test.serial(`saves with an insert`, (t) => entity.testInsert(t));
 test.serial(`performs a lookup`, (t) => entity.testLookup(t));
 test.serial(`saves with an update`, (t) => entity.testUpdate(t));
 test.serial(`deletes an entity`, (t) => entity.testDelete(t));
-test.serial(`performs a batch upsert`, (t) => entity.testBatchUpsert(t));
+test.serial(`performs a batch upsert`, (t) => {
+  t.plan(0);
+  return entity.testBatchUpsert(t);
+});
 test.serial(`performs a batch lookup`, (t) => entity.testBatchLookup(t));
 test.serial(`performs a batch delete`, (t) => entity.testBatchDelete(t));
