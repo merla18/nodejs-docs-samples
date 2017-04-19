@@ -13,12 +13,10 @@
  * limitations under the License.
  */
 
-'use strict';
-
-require(`../../system-test/_setup`);
-
 const proxyquire = require(`proxyquire`).noPreserveCache();
 const google = proxyquire(`googleapis`, {});
+const test = require(`ava`);
+const tools = require(`@google-cloud/nodejs-repo-tools`);
 
 function list (callback) {
   google.auth.getApplicationDefault((err, authClient) => {
@@ -45,8 +43,8 @@ function list (callback) {
   });
 }
 
-test.beforeEach(stubConsole);
-test.afterEach.always(restoreConsole);
+test.beforeEach(tools.stubConsole);
+test.afterEach.always(tools.restoreConsole);
 
 test.cb(`should list key rings`, (t) => {
   const googleapisMock = {

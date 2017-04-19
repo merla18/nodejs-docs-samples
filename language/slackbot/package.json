@@ -1,20 +1,34 @@
 {
   "name": "kubernetes-slack-botkit-example",
+  "description": "A Slack Botkit bot, running on Kubernetes.",
   "version": "0.0.1",
   "private": true,
-  "license": "Apache Version 2.0",
+  "license": "Apache-2.0",
   "author": "Google Inc.",
-  "description": "A Slack Botkit bot, running on Kubernetes.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
+  },
+  "cloud": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  },
   "main": "demo_bot.js",
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "scripts": {
+    "test": "ava -T 20s --verbose system-test/*.test.js"
+  },
   "dependencies": {
     "botkit": "0.0.5",
     "@google-cloud/language": "0.10.2",
     "sqlite3": "3.1.8"
   },
-  "scripts": {
-    "test": "cd ../..; npm run st -- --verbose language/slackbot/system-test/*.test.js"
-  },
-  "engines": {
-    "node": ">=4.3.2"
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "1.1.10",
+    "ava": "0.19.1",
+    "proxyquire": "1.7.11",
+    "sinon": "2.1.0"
   }
 }

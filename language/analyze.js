@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 function analyzeSentimentOfText (text) {
   // [START language_sentiment_string]
   // Imports the Google Cloud client library

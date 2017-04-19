@@ -12,6 +12,7 @@ text between thousands of language pairs.
 * [Setup](#setup)
 * [Samples](#samples)
   * [Translate](#translate)
+* [Running the tests](#running-the-tests)
 
 ## Setup
 

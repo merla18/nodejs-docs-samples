@@ -12,6 +12,7 @@ recognition technologies into developer applications.
 * [Setup](#setup)
 * [Samples](#samples)
   * [Recognize](#recognize)
+* [Running the tests](#running-the-tests)
 
 ## Setup
 

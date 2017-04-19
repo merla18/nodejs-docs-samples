@@ -65,6 +65,9 @@ test:
   override:
     - yarn run lint
     # - yarn run cover
+    - samples test build -l=kms --async
+    - samples test build -l=language --async
+    - samples test build -l=language/slackbot --async
     - samples test build -l=speech --async
     - samples test build -l=translate --async
   post:

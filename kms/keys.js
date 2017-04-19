@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 function createKeyRing (projectId, location, keyRingName) {
   // [START kms_create_keyring]
   // Your Google Cloud Platform project ID

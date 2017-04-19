@@ -16,7 +16,7 @@
     "node": ">=4.3.2"
   },
   "scripts": {
-    "test": "ava -T 20s --verbose"
+    "test": "ava -T 20s --verbose system-test/*.test.js"
   },
   "dependencies": {
     "@google-cloud/speech": "0.9.0",
@@ -25,7 +25,7 @@
     "yargs": "7.0.2"
   },
   "devDependencies": {
-    "@google-cloud/nodejs-repo-tools": "1.1.3",
+    "@google-cloud/nodejs-repo-tools": "1.1.10",
     "ava": "0.19.1",
     "proxyquire": "1.7.11",
     "sinon": "2.1.0"

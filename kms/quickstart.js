@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 // [START kms_quickstart]
 // Imports the Google APIs client library
 const google = require('googleapis');
