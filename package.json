@@ -43,7 +43,7 @@
   },
   "scripts": {
     "check": "yarn check --strict-semver --integrity",
-    "lint": "semistandard **/*.js scripts/*",
+    "lint": "semistandard \"**/*.js\" scripts/*",
     "pretest": "npm run lint && ./scripts/clean",
     "test": "ava --verbose -T 30s **/test/**/*.test.js",
     "cover": "nyc --cache npm test && nyc report --reporter=html"

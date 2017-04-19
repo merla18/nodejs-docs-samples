@@ -370,7 +370,13 @@ cli
     yargs
       .demand(2)
       .command('create <srcBucket> <destBucket> <time> <date> [description]', 'Create a transfer job.', {}, (opts) => {
-        program.createTransferJob(opts, console.log);
+        program.createTransferJob({
+          srcBucket: opts.srcBucket,
+          destBucket: opts.destBucket,
+          time: opts.time,
+          date: opts.date,
+          description: opts.description
+        }, console.log);
       })
       .command('get <job>', 'Get a transfer job.', {}, (opts) => {
         program.getTransferJob(opts.job, console.log);
@@ -379,7 +385,11 @@ cli
         program.listTransferJobs(console.log);
       })
       .command('set <job> <field> <value>', 'Change the status, description or transferSpec of a transfer job.', {}, (opts) => {
-        program.updateTransferJob(opts, console.log);
+        program.updateTransferJob({
+          job: opts.job,
+          field: opts.field,
+          value: opts.value
+        }, console.log);
       })
       .example('node $0 jobs create my-bucket my-other-bucket 2016/08/12 16:30 "Move my files"', 'Create a transfer job.')
       .example('node $0 jobs get transferJobs/123456789012345678', 'Get a transfer job.')

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-const assert = require(`assert`);
-const childProcess = require(`child_process`);
 const proxyquire = require(`proxyquire`).noPreserveCache();
 const sinon = require(`sinon`);
 const test = require(`ava`);

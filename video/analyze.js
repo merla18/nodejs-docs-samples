@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 function analyzeFaces (gcsUri) {
   // [START analyze_faces]
   // Imports the Google Cloud Video Intelligence library

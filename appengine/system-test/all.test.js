@@ -138,12 +138,6 @@ var sampleTests = [
     cmd: 'node',
     args: ['app.js'],
     msg: 'Hello, world!'
-  },
-  {
-    dir: 'trace',
-    cmd: 'node',
-    args: ['app.js'],
-    msg: 'acceleratedmobilepageurl'
   }
 ];
 

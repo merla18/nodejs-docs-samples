@@ -13,10 +13,7 @@
  * limitations under the License.
  */
 
-const assert = require(`assert`);
-const childProcess = require(`child_process`);
 const path = require(`path`);
-const sinon = require(`sinon`);
 const test = require(`ava`);
 const tools = require(`@google-cloud/nodejs-repo-tools`);
 const translate = require(`@google-cloud/translate`)();

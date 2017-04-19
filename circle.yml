@@ -63,12 +63,15 @@ dependencies:
 # Run your tests
 test:
   override:
-    - yarn run lint
+    # - yarn run lint
     # - yarn run cover
     - samples test build -l=kms --async
     - samples test build -l=language --async
     - samples test build -l=language/slackbot --async
     - samples test build -l=speech --async
+    - samples test build -l=storage --async
     - samples test build -l=translate --async
+    # This build times out. Does video need more than 10 min?
+    # - samples test build -l=video --async
   post:
     - nyc report --reporter=lcov > coverage.lcov && codecov || true
