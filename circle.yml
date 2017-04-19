@@ -37,6 +37,7 @@ dependencies:
     - yarn install
   post:
     - echo $KEYFILE > /home/ubuntu/nodejs-docs-samples/key.json
+    - gcloud auth activate-service-account --key-file /home/ubuntu/nodejs-docs-samples/key.json || true
   cache_directories:
     - ~/.cache/yarn
     - appengine/analytics/node_modules
