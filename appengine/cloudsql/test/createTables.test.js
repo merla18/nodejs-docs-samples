@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-require(`../../../test/_setup`);
-
+const test = require(`ava`);
 const path = require(`path`);
 const proxyquire = require(`proxyquire`).noPreserveCache();
+const sinon = require(`sinon`);
+const tools = require(`@google-cloud/nodejs-repo-tools`);
 
 const SAMPLE_PATH = path.join(__dirname, `../createTables.js`);
 
@@ -54,8 +55,8 @@ function getSample () {
   };
 }
 
-test.beforeEach(stubConsole);
-test.afterEach.always(restoreConsole);
+test.beforeEach(tools.stubConsole);
+test.afterEach.always(tools.restoreConsole);
 
 test.cb.serial(`should record a visit`, (t) => {
   const sample = getSample();

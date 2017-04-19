@@ -32,9 +32,9 @@ general:
 # Install your project's language-specific dependencies
 dependencies:
   pre:
-    - yarn global add nyc codecov
+    - yarn global add nyc codecov @google-cloud/nodejs-repo-tools
   override:
-    - yarn
+    - yarn install
   post:
     - echo $KEYFILE > /home/ubuntu/nodejs-docs-samples/key.json
   cache_directories:
@@ -62,6 +62,9 @@ dependencies:
 # Run your tests
 test:
   override:
-    - node scripts/test
+    - yarn run lint
+    # - yarn run cover
+    - samples test build -l=speech --async
+    - samples test build -l=translate --async
   post:
     - nyc report --reporter=lcov > coverage.lcov && codecov || true

@@ -1,4 +1,4 @@
-// Copyright 2015-2016, Google, Inc.
+// Copyright 2017, Google, Inc.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -10,8 +10,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-'use strict';
 
 // [START setup]
 // By default, the client will authenticate using the service account file
@@ -131,7 +129,6 @@ function deleteSink (sinkName, callback) {
 
 // The command-line program
 var cli = require('yargs');
-var utils = require('../utils');
 
 var program = module.exports = {
   createSink: createSink,
@@ -147,20 +144,20 @@ var program = module.exports = {
 
 cli
   .demand(1)
-  .command('create <sinkName> <bucketName> [filter]', 'Creates a new sink with the given name to the specified bucket with an optional filter.', {}, function (options) {
-    program.createSink(options.sinkName, options.bucketName, options.filter, utils.makeHandler(false));
+  .command('create <sinkName> <bucketName> [filter]', 'Creates a new sink with the given name to the specified bucket with an optional filter.', {}, (opts) => {
+    program.createSink(opts.sinkName, opts.bucketName, opts.filter, console.log);
   })
-  .command('get <sinkName>', 'Gets the metadata for the specified sink.', {}, function (options) {
-    program.getSinkMetadata(options.sinkName, utils.makeHandler());
+  .command('get <sinkName>', 'Gets the metadata for the specified sink.', {}, (opts) => {
+    program.getSinkMetadata(opts.sinkName, console.log);
   })
-  .command('list', 'Lists all sinks.', {}, function () {
-    program.listSinks(utils.makeHandler(true, 'id'));
+  .command('list', 'Lists all sinks.', {}, () => {
+    program.listSinks(console.log);
   })
-  .command('update <sinkName> <filter>', 'Updates the filter for the specified sink.', {}, function (options) {
-    program.updateSink(options.sinkName, options.filter, utils.makeHandler(false));
+  .command('update <sinkName> <filter>', 'Updates the filter for the specified sink.', {}, (opts) => {
+    program.updateSink(opts.sinkName, opts.filter, console.log);
   })
-  .command('delete <sinkName>', 'Deletes the specified sink.', {}, function (options) {
-    program.deleteSink(options.sinkName, utils.makeHandler(false));
+  .command('delete <sinkName>', 'Deletes the specified sink.', {}, (opts) => {
+    program.deleteSink(opts.sinkName, console.log);
   })
   .example('node $0 create export-errors app-error-logs', 'Create a new sink named "export-errors" that exports logs to a bucket named "app-error-logs".')
   .example('node $0 get export-errors', 'Get the metadata for a sink name "export-errors".')

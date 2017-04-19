@@ -88,6 +88,7 @@ test.beforeEach(stubConsole);
 test.afterEach.always(restoreConsole);
 
 test.serial(`processImage does nothing on delete`, async (t) => {
+  t.plan(0);
   await getSample().program.processImage({ data: { resourceState: `not_exists` } });
 });
 

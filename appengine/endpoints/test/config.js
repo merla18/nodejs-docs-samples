@@ -13,16 +13,12 @@
  * limitations under the License.
  */
 
-const test = require('ava');
-const tools = require('@google-cloud/nodejs-repo-tools');
-
-const config = require('./config');
-
-test.serial(`${config.test}:installation`, (t) => {
-  t.plan(0);
-  return tools.testInstallation(config);
-});
-test.serial(`${config.test}:app`, (t) => {
-  t.plan(0);
-  return tools.testLocalApp(config);
-});
+module.exports = {
+  args: ['app.js'],
+  cmd: 'node',
+  code: 404,
+  cwd: require('path').join(__dirname, '..'),
+  msg: 'Cannot GET',
+  port: 9003,
+  test: require('../package.json').name
+};

@@ -1,5 +1,5 @@
 /**
- * Copyright 2016, Google, Inc.
+ * Copyright 2017, Google, Inc.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,20 +13,19 @@
  * limitations under the License.
  */
 
-'use strict';
-
-require(`../../../test/_setup`);
-
 const express = require('express');
 const path = require('path');
-const proxyquire = require('proxyquire').noPreserveCache();
+const proxyquire = require('proxyquire').noCallThru();
 const request = require('supertest');
+const sinon = require('sinon');
+const test = require('ava');
+const tools = require('@google-cloud/nodejs-repo-tools');
 
+const config = require('./config');
 const SAMPLE_PATH = path.join(__dirname, '../app.js');
 
 function getSample () {
   const testApp = express();
-  sinon.stub(testApp, 'listen').callsArg(1);
   const expressMock = sinon.stub().returns(testApp);
   const app = proxyquire(SAMPLE_PATH, {
     express: expressMock
@@ -40,15 +39,23 @@ function getSample () {
   };
 }
 
-test.beforeEach(stubConsole);
-test.afterEach.always(restoreConsole);
+test.beforeEach(tools.stubConsole);
+test.afterEach.always(tools.restoreConsole);
+
+test.serial(`${config.test}:installation`, (t) => {
+  t.plan(0);
+  return tools.testInstallation(config);
+});
+
+test.serial(`${config.test}:app`, (t) => {
+  t.plan(0);
+  return tools.testLocalApp(config);
+});
 
 test(`sets up the sample`, (t) => {
   const sample = getSample();
 
   t.true(sample.mocks.express.calledOnce);
-  t.true(sample.app.listen.calledOnce);
-  t.is(sample.app.listen.firstCall.args[0], process.env.PORT || 8080);
 });
 
 test.cb(`should echo a message`, (t) => {

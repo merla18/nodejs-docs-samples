@@ -17,8 +17,6 @@ module.exports = {
   args: ['app.js'],
   cmd: 'node',
   cwd: require('path').join(__dirname, '..'),
-  installCmd: 'npm',
-  installArgs: ['install'],
   msg: 'Last 10 visits:',
   port: 9002,
   test: require('../package.json').name

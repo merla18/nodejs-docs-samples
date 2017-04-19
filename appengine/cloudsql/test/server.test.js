@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-require(`../../../test/_setup`);
-
-const config = require('./config');
 const express = require(`express`);
 const path = require(`path`);
-const proxyquire = require(`proxyquire`).noPreserveCache();
+const proxyquire = require(`proxyquire`).noCallThru();
 const request = require(`supertest`);
-const tools = require('@google-cloud/nodejs-repo-tools');
+const sinon = require(`sinon`);
+const test = require(`ava`);
+const tools = require(`@google-cloud/nodejs-repo-tools`);
 
+const config = require('./config');
 const SAMPLE_PATH = path.join(__dirname, `../server.js`);
 
 function getSample () {
@@ -59,8 +59,8 @@ function getSample () {
   };
 }
 
-test.beforeEach(stubConsole);
-test.afterEach.always(restoreConsole);
+test.beforeEach(tools.stubConsole);
+test.afterEach.always(tools.restoreConsole);
 
 test.serial(`${config.test}:installation`, (t) => {
   t.plan(0);

@@ -17,8 +17,6 @@ module.exports = {
   args: ['app.js'],
   cmd: 'node',
   cwd: require('path').join(__dirname, '..'),
-  installCmd: 'npm',
-  installArgs: ['install'],
   msg: 'Event tracked.',
   port: 9000,
   test: require('../package.json').name

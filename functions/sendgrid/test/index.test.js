@@ -415,6 +415,7 @@ test.serial(`Saves files`, async (t) => {
 });
 
 test.serial(`sendgridLoad does nothing on delete`, (t) => {
+  t.plan(0);
   return getSample().program.sendgridLoad({
     data: {
       resourceState: `not_exists`

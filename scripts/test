@@ -34,28 +34,18 @@ process.argv.forEach((arg) => {
 
 const rootDir = path.join(__dirname, '..');
 
+const blacklist = [
+  'speech',
+  'translate'
+];
+
 if (process.env.CIRCLE_BRANCH === 'master') {
-  const result = exec('yarn run all-cover', { cwd: rootDir });
+  const result = exec('samples test build', { cwd: rootDir });
 
   if (result.code !== 0) {
     process.exit(1);
   }
 } else {
-  if (!dryRun) {
-    const result = exec('yarn run lint', { cwd: rootDir });
-    if (result.code !== 0) {
-      process.exit(1);
-    }
-  }
-
-  // Get list of changed files
-  const changedFiles = exec('git diff-tree --no-commit-id --name-status -r HEAD', { silent: true }).stdout.split('\n')
-    .filter((line) => line)
-    .filter((line) => !line.startsWith('D'));
-
-  console.log('Changed files:'.bold);
-  changedFiles.forEach((file) => console.log(file));
-
   // Get list of directories that have tests
   const testDirs = getDirs(rootDir)
     .map((name) => name.replace(`${rootDir}/`, ''))
@@ -65,6 +55,14 @@ if (process.env.CIRCLE_BRANCH === 'master') {
   testDirs.forEach((file) => {
     console.log(`  - ${file}`);
   });
+
+  // Get list of changed files
+  const changedFiles = exec('git diff-tree --no-commit-id --name-status -r HEAD', { silent: true }).stdout.split('\n')
+    .filter((line) => line)
+    .filter((line) => !line.startsWith('D'));
+
+  console.log('Changed files:'.bold);
+  changedFiles.forEach((file) => console.log(file));
 
   // Find intersection between changed files and test directories
   const affectedTestsNames = {};
@@ -79,12 +77,31 @@ if (process.env.CIRCLE_BRANCH === 'master') {
   });
 
   // Get final names of tests that need to be run
-  const affectedTests = Object.keys(affectedTestsNames)
+  let affectedTests = Object.keys(affectedTestsNames)
     .map((name) => `${name}/*.test.js`);
 
+  let cloudbuildTests = [];
+
+  affectedTests = affectedTests.filter((name) => {
+    let blacklisted = false;
+    blacklist.forEach((_name) => {
+      if (name.includes(_name) || _name.includes(name)) {
+        blacklisted = true;
+        cloudbuildTests.push(name);
+        return false;
+      }
+    });
+
+    return !blacklisted;
+  });
+
+  cloudbuildTests = cloudbuildTests.map((name) => {
+    return name.replace('/system-test/*.test.js', '').replace('/test/*.test.js', '');
+  });
+
   console.log('\nAffected tests:'.bold);
-  affectedTests.forEach((file) => {
-    console.log(`  - ${file}`);
+  affectedTests.forEach((name) => {
+    console.log(`  - ${name}`);
   });
 
   if (affectedTests.length) {
@@ -93,11 +110,19 @@ if (process.env.CIRCLE_BRANCH === 'master') {
     console.log('\nTest command'.bold);
     console.log(`\n${cmd}`);
 
+    console.log('\nCloud Build Tests'.bold);
+    cloudbuildTests.forEach((name) => {
+      console.log(`  - ${name}`);
+    });
+
     if (!dryRun) {
-      const result = exec(cmd, { cwd: rootDir });
-      if (result.code !== 0) {
-        process.exit(1);
-      }
+      cloudbuildTests.forEach((name) => {
+        exec(`samples test build`, { cwd: path.resolve(`./${name}`) });
+      });
+      // const result = exec(cmd, { cwd: rootDir });
+      // if (result.code !== 0) {
+      //   process.exit(1);
+      // }
     }
   } else {
     console.log('No tests to run...');

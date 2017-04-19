@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-require('../../../system-test/_setup');
-
+const test = require('ava');
 const tools = require('@google-cloud/nodejs-repo-tools');
+
 const config = require('./config');
 
 test.serial(`${config.test}:installation`, (t) => {
