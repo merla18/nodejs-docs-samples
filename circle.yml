@@ -68,10 +68,15 @@ test:
     - samples test build -l=kms --async
     - samples test build -l=language --async
     - samples test build -l=language/slackbot --async
+    - samples test build -l=monitoring --async
+    - samples test build -l=prediction --async
+    - samples test build -l=pubsub --async
+    - samples test build -l=resource --async
+    - samples test build -l=spanner --async
     - samples test build -l=speech --async
     - samples test build -l=storage --async
     - samples test build -l=translate --async
-    # This build times out. Does video need more than 10 min?
+    # This build times out. Does video need more than 10 minutes?
     # - samples test build -l=video --async
   post:
     - nyc report --reporter=lcov > coverage.lcov && codecov || true

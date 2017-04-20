@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 // [START monitoring_quickstart]
 // Imports the Google Cloud client library
 const Monitoring = require('@google-cloud/monitoring');
@@ -67,5 +65,8 @@ const request = {
 client.createTimeSeries(request)
   .then((results) => {
     console.log(`Done writing time series data.`);
+  })
+  .catch((err) => {
+    console.error('ERROR:', err);
   });
 // [END monitoring_quickstart]
